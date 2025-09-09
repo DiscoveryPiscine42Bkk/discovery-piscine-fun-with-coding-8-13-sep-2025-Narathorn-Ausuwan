@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    user-select: none;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.menu {
+    display: none;
+}
+
+.dropdown:hover .text{
+    background-color: rgb(158, 70, 70);
+}
+
+.dropdown:hover .menu {
+    display: block;
+    background-color: antiquewhite;
+    padding: 5px;
+}
+
+.menu a {
+    display: block;
+    text-align: center;
+}
+
+.text {
+    background-color: rgb(255, 117, 117);
+}
