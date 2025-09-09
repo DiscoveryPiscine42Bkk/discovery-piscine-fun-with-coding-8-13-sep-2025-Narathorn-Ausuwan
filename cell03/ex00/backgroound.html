@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Randomizer</title>
+    <link href="backgroound.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <button type="button" onclick="randomColor()">Random!</button>
+    </div>
+</body>
+
+<script>
+    function randomColor() {
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+
+        document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+        // rgb(r, g, b)
+    }
+</script>
+
+
+</html>
