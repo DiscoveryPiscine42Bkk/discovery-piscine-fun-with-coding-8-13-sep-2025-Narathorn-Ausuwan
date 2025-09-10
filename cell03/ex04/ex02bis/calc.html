@@ -6,7 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>It's over 9000</title>
     <link rel="stylesheet" href="calc.css">
-    <script src="calc.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function calculate() {
+    const num1 = parseFloat($("#num1").val());
+    const num2 = parseFloat($("#num2").val());
+    const operator = $("#operator").val();
+
+    let ans = 0;
+
+    if (num1 < 0 || num2 < 0) {
+      console.log("Error :(");
+      alert("Error :(");
+      return;
+
+    } else if (operator === "+") {
+      ans = num1 + num2;
+
+    } else if (operator === "-") {
+      ans = num1 - num2;
+
+    } else if (operator === "*") {
+      ans = num1 * num2;
+
+    } else if (operator === "/") {
+      ans = num1 / num2;
+
+    } else if (operator === "%") {
+      ans = num1 % num2;
+    }
+
+    if (isNaN(ans)) {
+      console.log("It’s over 9000!");
+      alert("It’s over 9000!");
+    } else {
+      console.log(ans);
+      alert(ans);
+    }
+  }
+
+  $(document).ready(function () {
+    // จับ event submit ของ form
+    $("form").on("submit", function (e) {
+      e.preventDefault();
+      calculate();
+    });
+
+    // แจ้งเตือนทุก 30 วินาที
+    setInterval(function () {
+      alert("Please, use me...");
+    }, 30000);
+  });
+</script>
 </head>
 
 <body>
