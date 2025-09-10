@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(243, 243, 243);
+    padding: 15px;
+    border-radius: 10px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloon"></div>
+
+    <script>
+        $(document).ready(function () {
+            const balloon = $("#balloon");
+
+            function blow() {
+                const size = balloon.width();
+
+                // ขยาย
+                if (size + 10 > 420) {
+                    balloon.css({ width: "200px", height: "200px" });
+                } else {
+                    balloon.css({ width: size + 10 + "px", height: size + 10 + "px" });
+                }
+
+                // เปลี่ยนสี
+                const color = balloon.css("background-color");
+                if (color === "rgb(255, 0, 0)") { // red
+                    balloon.css("background-color", "green");
+                } else if (color === "rgb(0, 128, 0)") { // green
+                    balloon.css("background-color", "blue");
+                } else {
+                    balloon.css("background-color", "red");
+                }
+            }
+
+            function shrink() {
+                const size = balloon.width();
+
+                // หด
+                if (size - 5 >= 200) {
+                    balloon.css({ width: size - 5 + "px", height: size - 5 + "px" });
+                } else {
+                    balloon.css({ width: "200px", height: "200px" });
+                }
+
+                // เปลี่ยนสี
+                const color = balloon.css("background-color");
+                if (color === "rgb(255, 0, 0)") { // red
+                    balloon.css("background-color", "blue");
+                } else if (color === "rgb(0, 0, 255)") { // blue
+                    balloon.css("background-color", "green");
+                } else {
+                    balloon.css("background-color", "red");
+                }
+            }
+
+            // event
+            balloon.on("click", blow);
+            balloon.on("mouseleave", shrink);
+        });
+    </script>
+</body>
+
+</html>
